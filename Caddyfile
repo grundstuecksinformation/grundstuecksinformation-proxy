@@ -1,0 +1,24 @@
+http://localhost {
+    tls stefan.ziegler.de@gmail.com
+
+    proxy /client/ client:8080 {
+        without /client
+    }
+
+    redir /client /client/
+
+    log stdout
+    errors stdout
+}
+
+http://grundstuecksinformation.ch {
+    tls stefan.ziegler.de@gmail.com
+
+    proxy / client:8080 {
+    }
+
+    redir /client /client/
+
+    log stdout
+    errors stdout
+}
