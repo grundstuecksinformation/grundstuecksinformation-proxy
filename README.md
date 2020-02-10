@@ -1,5 +1,5 @@
 # grundstuecksinformation-proxy
 
 ```
-docker build -t sogis/wmts-proxy:latest . 
+docker build -t sogis/grundstuecksinformation-proxy:latest . 
 ```
