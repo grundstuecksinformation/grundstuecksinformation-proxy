@@ -30,6 +30,10 @@ http://grundstuecksinformation.ch {
         header_upstream X-Forwarded-Proto {scheme}
     }
 
+    proxy /api opensearch:8080 {
+        without /api
+    }    
+
     redir /client /client/
 
     log stdout
