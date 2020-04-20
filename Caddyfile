@@ -10,6 +10,10 @@ http://localhost {
         without /client
     }
 
+    proxy /api opensearch:8080 {
+        without /api
+    }
+
     redir /client /client/
 
     log stdout
