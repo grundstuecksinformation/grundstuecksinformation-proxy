@@ -11,6 +11,11 @@ http://localhost {
     }
 
     proxy /api opensearch:8080 {
+        header_upstream +X-Forwarded-Prefix api
+        header_upstream Host {host}
+        header_upstream X-Real-IP {remote}
+        header_upstream +X-Forwarded-For {remote}
+        header_upstream X-Forwarded-Proto {scheme}
         without /api
     }
 
