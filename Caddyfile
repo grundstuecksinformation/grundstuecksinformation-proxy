@@ -2,7 +2,7 @@ http://localhost {
     tls stefan.ziegler.de@gmail.com
 
     proxy /client/ client:8080 {
-        header_upstream +X-Forwarded-Prefix api
+        #header_upstream +X-Forwarded-Prefix client
         header_upstream Host {host}
         header_upstream X-Real-IP {remote}
         header_upstream +X-Forwarded-For {remote}
@@ -24,7 +24,6 @@ http://grundstuecksinformation.ch {
     tls stefan.ziegler.de@gmail.com
 
     proxy / client:8080 {
-        header_upstream +X-Forwarded-Prefix api
         header_upstream Host {host}
         header_upstream X-Real-IP {remote}
         header_upstream +X-Forwarded-For {remote}
