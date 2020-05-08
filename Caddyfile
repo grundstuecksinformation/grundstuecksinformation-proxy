@@ -35,8 +35,10 @@ http://localhost {
     errors stdout
 }
 
-http://grundstuecksinformation.ch {
-    tls stefan.ziegler.de@gmail.com
+grundstuecksinformation.ch {
+    tls stefan.ziegler.de@gmail.com {
+        ca https://acme-staging-v02.api.letsencrypt.org/directory
+    }
 
     proxy / client:8080 {
         header_upstream Host {host}
