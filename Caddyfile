@@ -19,7 +19,17 @@ http://localhost {
         without /api
     }
 
+    proxy /embed/ embed:8080 {
+        header_upstream +X-Forwarded-Prefix embed
+        header_upstream Host {host}
+        header_upstream X-Real-IP {remote}
+        header_upstream +X-Forwarded-For {remote}
+        header_upstream X-Forwarded-Proto {scheme}
+        without /embed
+    }
+
     redir /client /client/
+    redir /embed /embed/
 
     log stdout
     errors stdout
@@ -44,7 +54,17 @@ http://grundstuecksinformation.ch {
         without /api
     }    
 
+    proxy /embed/ embed:8080 {
+        header_upstream +X-Forwarded-Prefix embed
+        header_upstream Host {host}
+        header_upstream X-Real-IP {remote}
+        header_upstream +X-Forwarded-For {remote}
+        header_upstream X-Forwarded-Proto {scheme}
+        without /embed
+    }
+
     redir /client /client/
+    redir /embed /embed/
 
     log stdout
     errors stdout
